@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrizDeRastreabilidade-API", "MatrizDeRastreabilidade-API\MatrizDeRastreabilidade-API.csproj", "{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MatrizDeRastreabilidade-App", "MatrizDeRastreabilidade-App\", "{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50332"
+		Debug.AspNetCompiler.PhysicalPath = "MatrizDeRastreabilidade-App\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50332\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50332"
+		Release.AspNetCompiler.PhysicalPath = "MatrizDeRastreabilidade-App\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50332\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50332"
+		SlnRelativePath = "MatrizDeRastreabilidade-App\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|x64.Build.0 = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Debug|x86.Build.0 = Debug|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|x64.ActiveCfg = Release|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|x64.Build.0 = Release|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|x86.ActiveCfg = Release|Any CPU
+		{04179CFD-2218-4423-B12E-E3FAEB0FFEFC}.Release|x86.Build.0 = Release|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|x64.Build.0 = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|x64.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|x64.Build.0 = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|x86.ActiveCfg = Debug|Any CPU
+		{5A18C7F0-7F34-4E4C-9191-3BFF68D0E585}.Release|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {288119AE-8A0D-42FF-A4F0-4226FD919420}
+	EndGlobalSection
+EndGlobal
