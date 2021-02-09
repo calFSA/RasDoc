@@ -121,8 +121,7 @@ namespace MatrizDeRastreabilidade.API.Migrations
                         name: "FK_ProjetoColaborador_Colaborador_ColaboradorId",
                         column: x => x.ColaboradorId,
                         principalTable: "Colaborador",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ProjetoColaborador_Projeto_ProjetoId",
                         column: x => x.ProjetoId,

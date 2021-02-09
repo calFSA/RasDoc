@@ -12,6 +12,10 @@ namespace MatrizDeRastreabilidade.API.Data.Configurations
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Nome)
                 .HasColumnType("varchar(50)");
+
+            builder.HasMany(x => x.ProjetosColaboradores)
+               .WithOne(x => x.Colaborador)
+            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

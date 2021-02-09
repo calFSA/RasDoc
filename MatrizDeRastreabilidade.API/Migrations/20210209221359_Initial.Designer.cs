@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MatrizDeRastreabilidade.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210129220733_Initial")]
+    [Migration("20210209221359_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -287,9 +287,9 @@ namespace MatrizDeRastreabilidade.API.Migrations
             modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.ProjetoColaborador", b =>
                 {
                     b.HasOne("MatrizDeRastreabilidade.API.Model.Colaborador", "Colaborador")
-                        .WithMany()
+                        .WithMany("ProjetosColaboradores")
                         .HasForeignKey("ColaboradorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("MatrizDeRastreabilidade.API.Model.Projeto", "Projeto")
@@ -301,6 +301,11 @@ namespace MatrizDeRastreabilidade.API.Migrations
                     b.Navigation("Colaborador");
 
                     b.Navigation("Projeto");
+                });
+
+            modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.Colaborador", b =>
+                {
+                    b.Navigation("ProjetosColaboradores");
                 });
 
             modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.ManutencaoDeClasse", b =>

@@ -285,9 +285,9 @@ namespace MatrizDeRastreabilidade.API.Migrations
             modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.ProjetoColaborador", b =>
                 {
                     b.HasOne("MatrizDeRastreabilidade.API.Model.Colaborador", "Colaborador")
-                        .WithMany()
+                        .WithMany("ProjetosColaboradores")
                         .HasForeignKey("ColaboradorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("MatrizDeRastreabilidade.API.Model.Projeto", "Projeto")
@@ -299,6 +299,11 @@ namespace MatrizDeRastreabilidade.API.Migrations
                     b.Navigation("Colaborador");
 
                     b.Navigation("Projeto");
+                });
+
+            modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.Colaborador", b =>
+                {
+                    b.Navigation("ProjetosColaboradores");
                 });
 
             modelBuilder.Entity("MatrizDeRastreabilidade.API.Model.ManutencaoDeClasse", b =>

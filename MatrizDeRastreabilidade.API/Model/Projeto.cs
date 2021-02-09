@@ -13,6 +13,6 @@ namespace MatrizDeRastreabilidade.API.Model
         public DateTime? FinalizadoEm { get; set; }
         public int EquipeId { get; set; }
         public Equipe Equipe { get; set; }
-        public ICollection<ProjetoColaborador> Colaboradores { get; set; }
+        public virtual ICollection<ProjetoColaborador> Colaboradores { get; set; }
     }
 }
