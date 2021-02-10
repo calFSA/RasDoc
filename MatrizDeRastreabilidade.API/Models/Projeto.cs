@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MatrizDeRastreabilidade.API.Model
+namespace MatrizDeRastreabilidade.API.Models
 {
     public class Projeto
     {

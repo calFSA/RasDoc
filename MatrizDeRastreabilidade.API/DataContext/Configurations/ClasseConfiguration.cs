@@ -1,4 +1,4 @@
-﻿using MatrizDeRastreabilidade.API.Model;
+﻿using MatrizDeRastreabilidade.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

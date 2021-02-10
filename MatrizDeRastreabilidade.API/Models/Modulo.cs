@@ -1,4 +1,4 @@
-﻿namespace MatrizDeRastreabilidade.API.Model
+﻿namespace MatrizDeRastreabilidade.API.Models
 {
     public class Modulo
     {

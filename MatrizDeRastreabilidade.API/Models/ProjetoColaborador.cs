@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatrizDeRastreabilidade.API.Model
+namespace MatrizDeRastreabilidade.API.Models
 {
     public class ProjetoColaborador
     {

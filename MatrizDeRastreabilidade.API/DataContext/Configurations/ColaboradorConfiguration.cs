@@ -1,4 +1,4 @@
-﻿using MatrizDeRastreabilidade.API.Model;
+﻿using MatrizDeRastreabilidade.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,7 +15,7 @@ namespace MatrizDeRastreabilidade.API.Data.Configurations
 
             builder.HasMany(x => x.ProjetosColaboradores)
                .WithOne(x => x.Colaborador)
-            .OnDelete(DeleteBehavior.NoAction);
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
