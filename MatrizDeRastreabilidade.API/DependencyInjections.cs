@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MatrizDeRastreabilidade.API.Models;
+using MatrizDeRastreabilidade.API.Repositories;
+using MatrizDeRastreabilidade.API.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MatrizDeRastreabilidade.API
 {
@@ -11,6 +15,7 @@ namespace MatrizDeRastreabilidade.API
 
         private static void RepositoryDependence(IServiceCollection serviceProvider)
         {
+            serviceProvider.AddScoped<IColaboradorRepository, ColaboradorRepository>();
         }
     }
 }

@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
+using System.Collections.Generic;
 
 namespace MatrizDeRastreabilidade.API.Models
 {
-    public class Colaborador
+    public class Colaborador : IdentityUser
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
-        public virtual ICollection<ProjetoColaborador> ProjetosColaboradores { get; set; }
+        public virtual ICollection<ProjetoColaborador> ProjetoColaborador { get; set; }
     }
 }

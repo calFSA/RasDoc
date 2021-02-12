@@ -3,11 +3,11 @@ using System;
 
 namespace MatrizDeRastreabilidade.API.Helpers
 {
-    public class BaseControllerHelper : ControllerBase
+    public class ControllerBaseHelper : ControllerBase
     {
         protected readonly IServiceProvider _serviceProvider;
 
-        public BaseControllerHelper(IServiceProvider serviceProvider)
+        public ControllerBaseHelper(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
