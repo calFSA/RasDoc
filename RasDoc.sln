@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RasDoc.API", "src\RasDoc.API\RasDoc.API.csproj", "{0B2023C3-9BD4-4A8C-97E6-522709BFD1CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69780CD5-833F-436A-9518-4FB17C1D9A21} = {69780CD5-833F-436A-9518-4FB17C1D9A21}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RasDoc.Domain", "src\RasDoc.Domain\RasDoc.Domain.csproj", "{734E7EF9-E641-477D-8CC8-31740198F8FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RasDoc.DTO", "src\RasDoc.DTO\RasDoc.DTO.csproj", "{69780CD5-833F-436A-9518-4FB17C1D9A21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RasDoc.Entities", "src\RasDoc.Entities\RasDoc.Entities.csproj", "{86C7B9AB-6025-4511-BBC8-F0560481CC1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RasDoc.Tests", "src\RasDoc.Tests\RasDoc.Tests.csproj", "{DDD80CF0-8E04-4361-AD59-7140037E6A72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B2023C3-9BD4-4A8C-97E6-522709BFD1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2023C3-9BD4-4A8C-97E6-522709BFD1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2023C3-9BD4-4A8C-97E6-522709BFD1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2023C3-9BD4-4A8C-97E6-522709BFD1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734E7EF9-E641-477D-8CC8-31740198F8FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734E7EF9-E641-477D-8CC8-31740198F8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734E7EF9-E641-477D-8CC8-31740198F8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734E7EF9-E641-477D-8CC8-31740198F8FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69780CD5-833F-436A-9518-4FB17C1D9A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69780CD5-833F-436A-9518-4FB17C1D9A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69780CD5-833F-436A-9518-4FB17C1D9A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69780CD5-833F-436A-9518-4FB17C1D9A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C7B9AB-6025-4511-BBC8-F0560481CC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C7B9AB-6025-4511-BBC8-F0560481CC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C7B9AB-6025-4511-BBC8-F0560481CC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C7B9AB-6025-4511-BBC8-F0560481CC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD80CF0-8E04-4361-AD59-7140037E6A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD80CF0-8E04-4361-AD59-7140037E6A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD80CF0-8E04-4361-AD59-7140037E6A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD80CF0-8E04-4361-AD59-7140037E6A72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF7C8D32-BC5C-4C32-BDBC-A4B8BA88F014}
+	EndGlobalSection
+EndGlobal
