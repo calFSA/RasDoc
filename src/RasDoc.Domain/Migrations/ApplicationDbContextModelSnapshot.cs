@@ -241,6 +241,12 @@ namespace RasDoc.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("Timestamp");
+
                     b.Property<string>("Nome")
                         .HasColumnType("varchar(50)");
 
@@ -522,7 +528,7 @@ namespace RasDoc.Domain.Migrations
             modelBuilder.Entity("Rasdoc.Entities.Models.ProjetoColaborador", b =>
                 {
                     b.HasOne("Rasdoc.Entities.Models.Colaborador", "Colaborador")
-                        .WithMany("ProjetoColaborador")
+                        .WithMany("ProjetosColaborador")
                         .HasForeignKey("ColaboradorId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -540,7 +546,7 @@ namespace RasDoc.Domain.Migrations
 
             modelBuilder.Entity("Rasdoc.Entities.Models.Colaborador", b =>
                 {
-                    b.Navigation("ProjetoColaborador");
+                    b.Navigation("ProjetosColaborador");
                 });
 
             modelBuilder.Entity("Rasdoc.Entities.Models.ManutencaoDeClasse", b =>

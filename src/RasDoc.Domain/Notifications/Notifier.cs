@@ -4,7 +4,7 @@ namespace RasDoc.Domain.Notifications
 {
     public class Notifier : INotifier
     {
-        private List<Notification> _notifications;
+        private readonly IList<Notification> _notifications;
 
         public Notifier()
         {
@@ -16,7 +16,7 @@ namespace RasDoc.Domain.Notifications
             _notifications.Add(notification);
         }
 
-        public List<Notification> GetNotifations()
+        public IList<Notification> GetNotifations()
         {
             return _notifications;
         }

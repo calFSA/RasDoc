@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Rasdoc.DTO.Models;
+using Rasdoc.Entities.Models;
 
 namespace RasDoc.API.Configurations
 {
@@ -6,6 +8,7 @@ namespace RasDoc.API.Configurations
     {
         public AutoMapperConfig()
         {
+            CreateMap<Colaborador, ColaboradorDTO>().ReverseMap();
         }
     }
 }

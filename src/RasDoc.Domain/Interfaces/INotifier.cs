@@ -5,7 +5,7 @@ namespace RasDoc.Domain.Interfaces
     public interface INotifier
     {
         bool HasNotifications();
-        List<Notification> GetNotifations();
-        void Handle(Notification notificacao);
+        IList<Notification> GetNotifations();
+        void Handle(Notification notification);
     }
 }

@@ -20,7 +20,7 @@ namespace RasDoc.API.Controllers
             return !_notifier.HasNotifications();
         }
 
-        protected ActionResult CustomResponse(object? result = null)
+        protected IActionResult CustomResponse(object? result = null)
         {
             if (ValidOperation())
             {
@@ -38,7 +38,7 @@ namespace RasDoc.API.Controllers
             });
         }
 
-        protected ActionResult CustomResponse(ModelStateDictionary modelState)
+        protected IActionResult CustomResponse(ModelStateDictionary modelState)
         {
             if (!modelState.IsValid)
             {
@@ -59,9 +59,9 @@ namespace RasDoc.API.Controllers
             }
         }
 
-        protected void NotifyError(string mensagem)
+        protected void NotifyError(string message)
         {
-            _notifier.Handle(new Notification(mensagem));
+            _notifier.Handle(new Notification(message));
         }
     }
 }

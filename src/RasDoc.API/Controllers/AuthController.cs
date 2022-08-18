@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Rasdoc.API.Extensions;
 using Rasdoc.DTO.Models;
+using Rasdoc.Entities.Models;
 using RasDoc.API.Extensions;
 using RasDoc.Domain.Interfaces;
 
@@ -15,19 +17,25 @@ namespace RasDoc.API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly JwtAuth _jwtAuth;
+        private readonly IColaboradorRepository _colaboradorRepository;
+        private readonly IMapper _mapper;
 
-        public AuthController(INotifier notificador,
+        public AuthController(INotifier notifier,
                               SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
-                              JwtAuth jwtAuth
-                              ) : base(notificador)
+                              JwtAuth jwtAuth,
+                              IColaboradorRepository colaboradorRepository,
+                              IMapper mapper) : base(notifier)
         {
             _jwtAuth = jwtAuth;
             _signInManager = signInManager;
             _userManager = userManager;
+            _colaboradorRepository = colaboradorRepository;
+            _mapper = mapper;
         }
 
-        [ClaimsAuthorize("Auth", "post")]
+        [AllowAnonymous]
+        //[ClaimsAuthorize("Auth", "post")]
         [HttpPost("Register")]
         public async Task<IActionResult> Register(RegisterUserDTO registerUser)
         {
@@ -47,12 +55,24 @@ namespace RasDoc.API.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
+
+                var colaboradorDTO = new ColaboradorDTO
+                {
+                    Id = Guid.Parse(user.Id),
+                    Nome = user.UserName,
+                    Ativo = false
+                };
+
+                await _colaboradorRepository.AddAsync(_mapper.Map<Colaborador>(colaboradorDTO));
+
+
                 return CustomResponse(await _jwtAuth.CreateJwt(user.Email!));
             }
             foreach (var error in result.Errors)
             {
                 NotifyError(error.Description);
             }
+
 
             return CustomResponse(registerUser);
         }

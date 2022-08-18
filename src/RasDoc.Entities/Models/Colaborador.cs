@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using RasDoc.Entities.Models;
 
 namespace Rasdoc.Entities.Models
 {
-    public class Colaborador
+    public class Colaborador : EntityBase
     {
-        public Guid Id { get; set; } 
         public string? Nome { get; set; }
-        public virtual ICollection<ProjetoColaborador>? ProjetoColaborador { get; set; }
+        public bool Ativo { get; set; }
+        public virtual ICollection<ProjetoColaborador>? ProjetosColaborador { get; set; }
     }
 }

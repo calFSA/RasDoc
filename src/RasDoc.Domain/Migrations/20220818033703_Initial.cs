@@ -53,7 +53,9 @@ namespace RasDoc.Domain.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nome = table.Column<string>(type: "varchar(50)", nullable: true)
+                    Nome = table.Column<string>(type: "varchar(50)", nullable: true),
+                    Ativo = table.Column<bool>(type: "integer", nullable: false),
+                    DataAlt = table.Column<DateTimeOffset>(type: "Timestamp", nullable: true)
                 },
                 constraints: table =>
                 {
