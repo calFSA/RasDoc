@@ -32,7 +32,7 @@ namespace RasDoc.API.Controllers
         {
             var colaborador = _mapper.Map<IEnumerable<ColaboradorDTO>>(await _colaboradorRepository.CustomSearchAsync());
 
-            if (!colaborador.Any())
+            if (! colaborador.Any())
             {
                 return NotFound();
             }
@@ -46,12 +46,12 @@ namespace RasDoc.API.Controllers
         {
             var colaborador = _mapper.Map<IEnumerable<ColaboradorDTO>>(await _colaboradorRepository.CustomSearchAsync(c => c.Id == id));
 
-            if (!colaborador.Any())
+            if (! colaborador.Any())
             {
                 return NotFound();
             }
 
-            return Ok(colaborador);
+            return CustomResponse(colaborador);
         }
 
         [ClaimsAuthorize("Colaborador", "Post")]
@@ -83,7 +83,13 @@ namespace RasDoc.API.Controllers
                 return CustomResponse(ModelState);
             }
 
-            if (! _colaboradorRepository.CustomSearchAsync(c => c.Id == colaboradorDTO.Id).Result.Any())
+            if (id.ToString().ToUpper() != colaboradorDTO.Id.ToString().ToUpper())
+            {
+                NotifyError("O id do objeto é diferente do id solicitado.");
+                return CustomResponse();
+            }
+
+            if (! _colaboradorRepository.CustomSearchAsync(c => c.Id == id).Result.Any())
             {
                 return NotFound();
             }

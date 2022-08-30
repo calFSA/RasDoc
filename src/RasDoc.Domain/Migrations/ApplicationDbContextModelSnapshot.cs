@@ -15,7 +15,7 @@ namespace RasDoc.Domain.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.7");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -265,6 +265,9 @@ namespace RasDoc.Domain.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<Guid>("ColaboradorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTimeOffset?>("DataAlt")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("FinalizadoEm")

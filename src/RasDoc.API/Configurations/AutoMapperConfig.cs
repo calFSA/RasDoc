@@ -9,6 +9,7 @@ namespace RasDoc.API.Configurations
         public AutoMapperConfig()
         {
             CreateMap<Colaborador, ColaboradorDTO>().ReverseMap();
+            CreateMap<Equipe, EquipeDTO>().ReverseMap();
         }
     }
 }

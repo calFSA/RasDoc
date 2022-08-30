@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Rasdoc.Entities.Models;
+using System.Diagnostics;
 
 namespace RasDoc.Domain.Context
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        #region DbSet's
         public DbSet<Colaborador>? Colaborador { get; set; }
+        public DbSet<Equipe>? Equipe { get; set; }
+        #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -16,6 +20,15 @@ namespace RasDoc.Domain.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+            //modelBuilder.Entity<>().HasData(new List<>
+            //{
+            //});
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.LogTo(message => Debug.WriteLine(message));
         }
     }
 }

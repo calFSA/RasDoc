@@ -34,12 +34,11 @@ namespace RasDoc.API.Controllers
             _mapper = mapper;
         }
 
-        [AllowAnonymous]
-        //[ClaimsAuthorize("Auth", "post")]
+        [ClaimsAuthorize("Auth", "Post")]
         [HttpPost("Register")]
         public async Task<IActionResult> Register(RegisterUserDTO registerUser)
         {
-            if (!ModelState.IsValid)
+            if (! ModelState.IsValid)
             {
                 return CustomResponse(ModelState);
             }
@@ -65,14 +64,13 @@ namespace RasDoc.API.Controllers
 
                 await _colaboradorRepository.AddAsync(_mapper.Map<Colaborador>(colaboradorDTO));
 
-
                 return CustomResponse(await _jwtAuth.CreateJwt(user.Email!));
             }
+
             foreach (var error in result.Errors)
             {
                 NotifyError(error.Description);
             }
-
 
             return CustomResponse(registerUser);
         }
@@ -81,28 +79,30 @@ namespace RasDoc.API.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginUserDTO loginUser)
         {
-            if (!ModelState.IsValid)
+            if (! ModelState.IsValid)
             {
                 return CustomResponse(ModelState);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
-
-            if (result.Succeeded)
+            var user = await _userManager.FindByEmailAsync(loginUser.Email);
+            if (user != null)
             {
-                return CustomResponse(await _jwtAuth.CreateJwt(loginUser.Email!));
-            }
+                var result = await _signInManager.PasswordSignInAsync(user.UserName, loginUser.Password, false, true);
 
-            if (result.IsLockedOut)
-            {
-                NotifyError("Usuário temporariamente bloqueado por tentatidas inválidas");
-                return CustomResponse(loginUser);
+                if (result.Succeeded)
+                {
+                    return CustomResponse(await _jwtAuth.CreateJwt(loginUser.Email!));
+                }
+
+                if (result.IsLockedOut)
+                {
+                    NotifyError("Usuário temporariamente bloqueado por tentatidas inválidas");
+                    return CustomResponse(loginUser);
+                }
             }
 
             NotifyError("Usuário ou Senha incorretos");
             return CustomResponse(loginUser);
         }
-
-        
     }
 }

@@ -61,6 +61,7 @@ namespace RasDoc.Domain.Repository
             catch (DbUpdateException ex)
             {
                 Notify(ex.InnerException!.Message);
+                return false;
             }
 
             return true;

@@ -191,7 +191,8 @@ namespace RasDoc.Domain.Migrations
                     Ativo = table.Column<bool>(type: "INTEGER", nullable: false),
                     IniciadoEm = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
                     FinalizadoEm = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    ColaboradorId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    ColaboradorId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    DataAlt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

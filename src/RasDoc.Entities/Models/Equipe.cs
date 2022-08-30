@@ -1,8 +1,9 @@
-﻿namespace Rasdoc.Entities.Models
+﻿using RasDoc.Entities.Models;
+
+namespace Rasdoc.Entities.Models
 {
-    public class Equipe
+    public class Equipe : EntityBase
     {
-        public Guid Id { get; set; }
         public string? Nome { get; set; }
         public bool Ativo { get; set; } = true;
         public DateTime IniciadoEm { get; set; }

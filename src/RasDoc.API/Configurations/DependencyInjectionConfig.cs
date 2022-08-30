@@ -15,8 +15,9 @@ namespace RasDoc.API.Configurations
             services.AddScoped<JwtAuth>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<INotifier, Notifier>();
-            services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<IReturnUserIdColaboradorService, ReturnUserIdColaboradorService>();
+            services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
+            services.AddScoped<IEquipeRepository, EquipeRepository>();
 
             return services;
         }
