@@ -1,8 +1,9 @@
-﻿namespace Rasdoc.Entities.Models
+﻿using RasDoc.Entities.Models;
+
+namespace Rasdoc.Entities.Models
 {
-    public class Projeto
+    public class Projeto : EntityBase
     {
-        public Guid Id { get; set; }
         public string? Nome { get; set; }
         public string? Apelido { get; set; }
         public bool Ativo { get; set; }
@@ -10,6 +11,6 @@
         public DateTime? FinalizadoEm { get; set; }
         public Guid EquipeId { get; set; }
         public Equipe? Equipe { get; set; }
-        public ICollection<ProjetoColaborador>? Colaboradores { get; set; }
+        public ICollection<ProjetoColaborador>? ProjetosColaborador { get; set; }
     }
 }

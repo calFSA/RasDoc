@@ -22,7 +22,7 @@ namespace RasDoc.Domain.Context.Configurations
             builder.Property(p => p.FinalizadoEm);
             builder.Property(p => p.EquipeId);
 
-            builder.HasMany(p => p.Colaboradores)
+            builder.HasMany(p => p.ProjetosColaborador)
                 .WithOne(p => p.Projeto)
                 .OnDelete(DeleteBehavior.Cascade);
         }

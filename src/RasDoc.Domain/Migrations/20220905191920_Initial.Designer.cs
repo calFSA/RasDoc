@@ -11,7 +11,7 @@ using RasDoc.Domain.Context;
 namespace RasDoc.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220830224533_Initial")]
+    [Migration("20220905191920_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -366,6 +366,9 @@ namespace RasDoc.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid>("EquipeId")
                         .HasColumnType("TEXT");
 
@@ -539,7 +542,7 @@ namespace RasDoc.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Rasdoc.Entities.Models.Projeto", "Projeto")
-                        .WithMany("Colaboradores")
+                        .WithMany("ProjetosColaborador")
                         .HasForeignKey("ProjetoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -561,7 +564,7 @@ namespace RasDoc.Domain.Migrations
 
             modelBuilder.Entity("Rasdoc.Entities.Models.Projeto", b =>
                 {
-                    b.Navigation("Colaboradores");
+                    b.Navigation("ProjetosColaborador");
                 });
 #pragma warning restore 612, 618
         }

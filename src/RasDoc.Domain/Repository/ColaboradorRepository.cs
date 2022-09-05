@@ -1,4 +1,6 @@
-﻿using Rasdoc.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Rasdoc.Entities.Models;
+using RasDoc.Domain.Context;
 using RasDoc.Domain.Interfaces;
 using System.Linq.Expressions;
 
@@ -7,10 +9,12 @@ namespace RasDoc.Domain.Repository
     public class ColaboradorRepository : IColaboradorRepository
     {
         private readonly IBaseRepository<Colaborador> _baseRepository;
+        private readonly ApplicationDbContext _context;
 
-        public ColaboradorRepository(IBaseRepository<Colaborador> baseRepository)
+        public ColaboradorRepository(IBaseRepository<Colaborador> baseRepository, ApplicationDbContext context)
         {
             _baseRepository = baseRepository;
+            _context = context;
         }
 
         public async Task<bool> AddAsync(Colaborador colaborador)
@@ -30,7 +34,12 @@ namespace RasDoc.Domain.Repository
 
         public async Task<IEnumerable<Colaborador>> CustomSearchAsync(Expression<Func<Colaborador, bool>> filter = null!)
         {
-            return await _baseRepository.CustomSearchAsync(filter);
+            return filter == null
+                ? await _context.Colaborador!.AsNoTrackingWithIdentityResolution()
+                                        .Include(p => p.ProjetosColaborador).ToListAsync()
+                : await _context.Colaborador!.AsNoTrackingWithIdentityResolution()
+                                        .Include(p => p.ProjetosColaborador)
+                                        .Where(filter).ToListAsync();
         }
 
         void IDisposable.Dispose()
