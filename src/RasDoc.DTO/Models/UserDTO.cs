@@ -2,7 +2,7 @@
 
 namespace Rasdoc.DTO.Models
 {
-    public class RegisterUserDTO
+    public record RegisterUserDTO
     {
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string? Name { get; set; }
@@ -19,7 +19,7 @@ namespace Rasdoc.DTO.Models
         public string? ConfirmPassword { get; set; }
     }
 
-    public class LoginUserDTO
+    public record LoginUserDTO
     {
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [EmailAddress(ErrorMessage = "O campo {0} está em formato inválido")]
@@ -30,21 +30,21 @@ namespace Rasdoc.DTO.Models
         public string? Password { get; set; }
     }
 
-    public class UserTokenDTO
+    public record UserTokenDTO
     {
         public string? Id { get; set; }
         public string? Email { get; set; }
         public IEnumerable<ClaimDTO>? Claims { get; set; }
     }
 
-    public class LoginResponseDTO
+    public record LoginResponseDTO
     {
         public string? AccessToken { get; set; }
         public double ExpiresIn { get; set; }
         public UserTokenDTO? UserToken { get; set; }
     }
 
-    public class ClaimDTO
+    public record ClaimDTO
     {
         public string? Value { get; set; }
         public string? Type { get; set; }

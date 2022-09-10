@@ -12,6 +12,7 @@ namespace RasDoc.Domain.Context
         public DbSet<Equipe>? Equipe { get; set; }
         public DbSet<Projeto>? Projeto { get; set; }
         public DbSet<ProjetoColaborador>? ProjetoColaborador { get; set; }
+        public DbSet<Modulo>? Modulo { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

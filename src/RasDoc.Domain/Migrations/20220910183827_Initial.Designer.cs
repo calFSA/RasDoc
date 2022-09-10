@@ -11,7 +11,7 @@ using RasDoc.Domain.Context;
 namespace RasDoc.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220905191920_Initial")]
+    [Migration("20220910183827_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -340,6 +340,9 @@ namespace RasDoc.Domain.Migrations
                     b.Property<string>("Codigo")
                         .HasColumnType("varchar(50)");
 
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nome")
                         .HasColumnType("varchar(50)");
 
@@ -399,12 +402,15 @@ namespace RasDoc.Domain.Migrations
                     b.Property<Guid>("ColaboradorId")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("FinalizadoEm")
+                    b.Property<DateTimeOffset?>("DataAlt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("IniciadoEm")
+                    b.Property<DateTimeOffset?>("FinalizadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTimeOffset>("IniciadoEm")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("Timestamp")
                         .HasDefaultValueSql("datetime('now', 'localtime')");
 
                     b.Property<Guid>("ProjetoId")

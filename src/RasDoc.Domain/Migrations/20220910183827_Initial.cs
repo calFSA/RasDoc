@@ -236,7 +236,8 @@ namespace RasDoc.Domain.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Nome = table.Column<string>(type: "varchar(50)", nullable: true),
                     Codigo = table.Column<string>(type: "varchar(50)", nullable: true),
-                    ProjetoId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    ProjetoId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    DataAlt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,8 +257,9 @@ namespace RasDoc.Domain.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     ProjetoId = table.Column<Guid>(type: "TEXT", nullable: false),
                     ColaboradorId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IniciadoEm = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
-                    FinalizadoEm = table.Column<DateTime>(type: "TEXT", nullable: true)
+                    IniciadoEm = table.Column<DateTimeOffset>(type: "Timestamp", nullable: false, defaultValueSql: "datetime('now', 'localtime')"),
+                    FinalizadoEm = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
+                    DataAlt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

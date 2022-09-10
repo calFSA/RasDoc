@@ -1,22 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Rasdoc.DTO.Models
 {
-    public class ProjetoColaboradorDTO
+    public record ProjetoColaboradorDTO
     {
-        [Key]
+        [Key] 
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public Guid ProjetoId { get; set; }
+        [JsonIgnore]
         public ProjetoDTO? Projeto { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public string? ColaboradorId { get; set; }
+        public Guid ColaboradorId { get; set; }
+        [JsonIgnore]
         public ColaboradorDTO? Colaborador { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public DateTime IniciadoEm { get; set; }
-        public DateTime? FinalizadoEm { get; set; }
+        public DateTimeOffset IniciadoEm { get; set; }
+        public DateTimeOffset? FinalizadoEm { get; set; }
     }
 }

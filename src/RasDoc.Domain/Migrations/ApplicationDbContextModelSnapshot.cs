@@ -338,6 +338,9 @@ namespace RasDoc.Domain.Migrations
                     b.Property<string>("Codigo")
                         .HasColumnType("varchar(50)");
 
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nome")
                         .HasColumnType("varchar(50)");
 
@@ -397,12 +400,15 @@ namespace RasDoc.Domain.Migrations
                     b.Property<Guid>("ColaboradorId")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("FinalizadoEm")
+                    b.Property<DateTimeOffset?>("DataAlt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("IniciadoEm")
+                    b.Property<DateTimeOffset?>("FinalizadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTimeOffset>("IniciadoEm")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("Timestamp")
                         .HasDefaultValueSql("datetime('now', 'localtime')");
 
                     b.Property<Guid>("ProjetoId")

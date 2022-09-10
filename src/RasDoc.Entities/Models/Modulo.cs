@@ -1,8 +1,9 @@
-﻿namespace Rasdoc.Entities.Models
+﻿using RasDoc.Entities.Models;
+
+namespace Rasdoc.Entities.Models
 {
-    public class Modulo
+    public class Modulo : EntityBase
     {
-        public Guid Id { get; set; }
         public string? Nome { get; set; }
         public string? Codigo { get; set; }
         public Guid ProjetoId { get; set; }

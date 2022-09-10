@@ -2,7 +2,7 @@
 
 namespace Rasdoc.DTO.Models
 {
-    public class ProjetoDTO
+    public record ProjetoDTO
     {
         [Key]
         public Guid Id { get; set; }

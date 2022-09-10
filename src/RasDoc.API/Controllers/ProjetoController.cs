@@ -14,13 +14,16 @@ namespace RasDoc.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IProjetoRepository _projetoRepository;
+        private readonly IProjetoColaboradorRepository _projetoColaboradorRepository;
 
         public ProjetoController(INotifier notifier,
                                  IMapper mapper,
-                                 IProjetoRepository projetoRepository) : base(notifier)
+                                 IProjetoRepository projetoRepository,
+                                 IProjetoColaboradorRepository projetoColaboradorRepository) : base(notifier)
         {
             _mapper = mapper;
             _projetoRepository = projetoRepository;
+            _projetoColaboradorRepository = projetoColaboradorRepository;
         }
 
         [ClaimsAuthorize("Projeto", "Get")]
@@ -41,7 +44,7 @@ namespace RasDoc.API.Controllers
         [HttpGet("{id:Guid}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var projeto = _mapper.Map<IEnumerable<ProjetoDTO>>(await _projetoRepository.CustomSearchAsync(e => e.Id == id));
+            var projeto = _mapper.Map<IEnumerable<ProjetoDTO>>(await _projetoRepository.CustomSearchAsync(p => p.Id == id));
 
             if (! projeto.Any())
             {
@@ -81,7 +84,7 @@ namespace RasDoc.API.Controllers
                 return CustomResponse();
             }
 
-            if (! _projetoRepository.CustomSearchAsync(e => e.Id == id).Result.Any())
+            if (! _projetoRepository.CustomSearchAsync(p => p.Id == id).Result.Any())
             {
                 return NotFound();
             }
@@ -91,11 +94,58 @@ namespace RasDoc.API.Controllers
             return CustomResponse(projetoDTO);
         }
 
+        [ClaimsAuthorize("Projeto", "Get")]
+        [HttpGet("Colaboradores/{id:Guid}")]
+        public async Task<IActionResult> GetColaborador(Guid id)
+        {
+            return CustomResponse(_mapper.Map<IEnumerable<ProjetoColaboradorDTO>>(await _projetoColaboradorRepository.CustomSearchAsync(pc => pc.Id == id)));
+        }
+
+        [ClaimsAuthorize("Projeto", "Post")]
+        [HttpPost("Colaboradores")]
+        public async Task<IActionResult> PostColaborador(ProjetoColaboradorDTO projetoColaboradorDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CustomResponse(ModelState);
+            }
+
+            projetoColaboradorDTO.Id = Guid.NewGuid();
+            await _projetoColaboradorRepository.AddAsync(_mapper.Map<ProjetoColaborador>(projetoColaboradorDTO));
+
+            return CustomResponse(projetoColaboradorDTO);
+        }
+
+        [ClaimsAuthorize("Projeto", "Put")]
+        [HttpPut("Colaboradores/{id:Guid}")]
+        public async Task<IActionResult> PutColaborador(Guid id, ProjetoColaboradorDTO projetoColaboradorDTO)
+        {
+            if (! ModelState.IsValid)
+            {
+                return CustomResponse(ModelState);
+            }
+
+            if (id.ToString().ToUpper() != projetoColaboradorDTO.Id.ToString().ToUpper())
+            {
+                NotifyError("O id do objeto é diferente do id solicitado.");
+                return CustomResponse();
+            }
+
+            if (! _projetoColaboradorRepository.CustomSearchAsync(pc => pc.Id.ToString().ToUpper() == id.ToString().ToUpper()).Result.Any())
+            {
+                return NotFound();
+            }
+
+            await _projetoColaboradorRepository.UpdateAsync(_mapper.Map<ProjetoColaborador>(projetoColaboradorDTO));
+
+            return CustomResponse(projetoColaboradorDTO);
+        }
+
         [ClaimsAuthorize("Projeto", "Delete")]
         [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (! _projetoRepository.CustomSearchAsync(e => e.Id == id).Result.Any())
+            if (! _projetoRepository.CustomSearchAsync(p => p.Id == id).Result.Any())
             {
                 return NotFound();
             }
