@@ -22,7 +22,7 @@ namespace RasDoc.Domain.Repository
         {
             try
             {
-                await _DbSet.AddAsync(entity); 
+                await _DbSet.AddAsync(entity);
                 await _applicationDbContext.SaveChangesAsync();
             }
             catch (DbUpdateException ex)
