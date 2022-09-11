@@ -20,6 +20,8 @@ namespace RasDoc.API.Configurations
             services.AddScoped<IEquipeRepository, EquipeRepository>();
             services.AddScoped<IProjetoRepository, ProjetoRepository>();
             services.AddScoped<IProjetoColaboradorRepository, ProjetoColaboradorRepository>();
+            services.AddScoped<IModuloRepository, ModuloRepository>();
+            services.AddScoped<IClasseRepository, ClasseRepository>();
 
             return services;
         }

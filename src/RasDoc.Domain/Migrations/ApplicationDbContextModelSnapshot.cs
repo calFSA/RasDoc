@@ -222,6 +222,9 @@ namespace RasDoc.Domain.Migrations
                     b.Property<string>("Codigo")
                         .HasColumnType("varchar(30)");
 
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("Timestamp");
+
                     b.Property<Guid>("ModuloId")
                         .HasColumnType("TEXT");
 

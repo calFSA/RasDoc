@@ -284,7 +284,8 @@ namespace RasDoc.Domain.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Nome = table.Column<string>(type: "varchar(50)", nullable: true),
                     Codigo = table.Column<string>(type: "varchar(30)", nullable: true),
-                    ModuloId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    ModuloId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    DataAlt = table.Column<DateTimeOffset>(type: "Timestamp", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -12,6 +12,8 @@ namespace RasDoc.API.Configurations
             CreateMap<Equipe, EquipeDTO>().ReverseMap();
             CreateMap<Projeto, ProjetoDTO>().ReverseMap();
             CreateMap<ProjetoColaborador, ProjetoColaboradorDTO>().ReverseMap();
+            CreateMap<Modulo, ModuloDTO>().ReverseMap();
+            CreateMap<Classe, ClasseDTO>().ReverseMap();
         }
     }
 }

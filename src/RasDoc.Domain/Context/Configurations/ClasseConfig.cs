@@ -14,6 +14,8 @@ namespace RasDoc.Domain.Context.Configurations
                 .HasColumnType("varchar(50)");
             builder.Property(p => p.Codigo)
                 .HasColumnType("varchar(30)");
+            builder.Property(c => c.DataAlt)
+                .HasColumnType("Timestamp");
         }
     }
 }

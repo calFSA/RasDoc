@@ -10,7 +10,7 @@ namespace RasDoc.Domain.Repository
     {
         private readonly ApplicationDbContext _context;
 
-        public ProjetoRepository(ApplicationDbContext context) : base(context, null!)
+        public ProjetoRepository(ApplicationDbContext context, INotifier notifier) : base(context, notifier)
         {
             _context = context;
         }

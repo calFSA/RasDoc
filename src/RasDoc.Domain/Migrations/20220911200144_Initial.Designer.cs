@@ -11,7 +11,7 @@ using RasDoc.Domain.Context;
 namespace RasDoc.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220910183827_Initial")]
+    [Migration("20220911200144_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,6 +223,9 @@ namespace RasDoc.Domain.Migrations
 
                     b.Property<string>("Codigo")
                         .HasColumnType("varchar(30)");
+
+                    b.Property<DateTimeOffset?>("DataAlt")
+                        .HasColumnType("Timestamp");
 
                     b.Property<Guid>("ModuloId")
                         .HasColumnType("TEXT");

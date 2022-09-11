@@ -13,6 +13,7 @@ namespace RasDoc.Domain.Context
         public DbSet<Projeto>? Projeto { get; set; }
         public DbSet<ProjetoColaborador>? ProjetoColaborador { get; set; }
         public DbSet<Modulo>? Modulo { get; set; }
+        public DbSet<Classe>? Classe { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -31,7 +32,8 @@ namespace RasDoc.Domain.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.LogTo(message => Debug.WriteLine(message));
+            optionsBuilder.LogTo(message => Debug.WriteLine(message))
+                          .EnableSensitiveDataLogging();
         }
     }
 }
