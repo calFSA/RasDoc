@@ -14,6 +14,8 @@ namespace RasDoc.Domain.Context
         public DbSet<ProjetoColaborador>? ProjetoColaborador { get; set; }
         public DbSet<Modulo>? Modulo { get; set; }
         public DbSet<Classe>? Classe { get; set; }
+        public DbSet<ManutencaoDeClasse>? ManutencaoDeClasse { get; set; }
+        public DbSet<ManutencaoDeClasseDependencia>? ManutencaoDeClasseDependencia { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

@@ -16,5 +16,7 @@ namespace Rasdoc.DTO.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public Guid ModuloId { get; set; }
         public ModuloDTO? Modulo { get; set; }
+
+        public ICollection<ManutencaoDeClasseDTO>? ManutencaoDeClasses { get; set; }
     }
 }

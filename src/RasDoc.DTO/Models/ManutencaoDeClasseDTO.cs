@@ -16,6 +16,10 @@ namespace Rasdoc.DTO.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string? Localizacao { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public Guid ClasseId { get; set; }
+        public ClasseDTO? Classe { get; set; }
+
         public ICollection<ManutencaoDeClasseDependenciaDTO>? ManutencaoDeClasseDependencias { get; set; }
     }
 }

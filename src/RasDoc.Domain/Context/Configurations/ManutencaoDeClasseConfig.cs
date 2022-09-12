@@ -10,12 +10,18 @@ namespace MatrizDeRastreabilidade.API.Data.Configurations
         {
             builder.ToTable("ManutencaoDeClasse");
             builder.HasKey("Id");
-            builder.Property(p => p.Nome)
+            builder.Property(m => m.Nome)
                 .HasColumnType("varchar(50)");
-            builder.Property(p => p.Codigo)
+            builder.Property(m => m.Codigo)
                 .HasColumnType("varchar(30)");
-            builder.Property(p => p.Localizacao)
+            builder.Property(m => m.Localizacao)
                 .HasColumnType("text");
+            builder.Property(m => m.DataAlt)
+                .HasColumnType("Timestamp");
+
+            builder.HasMany(mcd => mcd.ManutencaoDeClasseDependencias)
+               .WithOne(mc => mc.ManutencaoDeClasse)
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RasDoc.API.Extensions;
+﻿using Rasdoc.Entities.Models;
+using RasDoc.API.Extensions;
 using RasDoc.Domain.Context;
 using RasDoc.Domain.Interfaces;
 using RasDoc.Domain.Notifications;
@@ -22,6 +23,7 @@ namespace RasDoc.API.Configurations
             services.AddScoped<IProjetoColaboradorRepository, ProjetoColaboradorRepository>();
             services.AddScoped<IModuloRepository, ModuloRepository>();
             services.AddScoped<IClasseRepository, ClasseRepository>();
+            services.AddScoped<IManutencaoDeClasseRepository, ManutencaoDeClasseRepository>();
 
             return services;
         }
